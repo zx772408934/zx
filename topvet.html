@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
+    <link rel="stylesheet" href="../bootstrap-3.3.5-dist/css/bootstrap.css">
+    <!--[if lt IE 9]>
+    <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style type="text/css">
+
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .banner{
+            position: fixed;
+            top: 0;
+            left: 0;
+            padding: 0;
+            z-index: -1;
+        }
+        .banner img {
+            width: 1349px;
+            height: 700px;
+        }
+        .nav{
+            color: white;
+            padding: 0;
+            z-index: 9999;
+        }
+        .nav .left{
+            height: 120px;
+            line-height: 120px;
+            transition: all .3s linear;
+            text-align: left;
+        }
+        .nav span{
+            text-align: center;
+        }
+        .nav .left span{
+            font-size: 30px;
+        }
+        .nav .right{
+            margin-top: 40px;
+        }
+        .nav .right span{
+            height: 40px;
+            line-height: 40px;
+        }
+        .nav .right span:nth-child(1){
+            font-size: 14px;
+            color: gainsboro;
+        }
+        .nav .right span:nth-child(2){
+            border: 1px solid white;
+            border-radius: 25px;
+            font-size: 12px;
+        }
+        .nav .bottom{
+            background-color: white;
+            height: 220px;
+            margin-top: -80px;
+            padding-top: 100px;
+            padding-bottom: 20px;
+            z-index: -1;
+        }
+        .nav .bottom div{
+            height: 35px;
+            background-color: gainsboro;
+            margin-top: 10px;
+            border-radius: 25px;
+            text-align: center;
+            line-height: 35px;
+            cursor: pointer;
+        }
+        .nav .bottom div:nth-child(1){
+            background-color: white;
+            color: grey;
+            font-size: 16px;
+            border: 1px solid grey;
+        }
+        .nav .bottom div:nth-child(2){
+            background-color: #40b1ff;
+            color: white;
+            font-size: 14px;
+        }
+        .words{
+            margin-top: 60px;
+            color: grey;
+            padding: 0;
+            height: 560px;
+        }
+        .words>div:nth-child(1){
+            color: white;
+            font-size: 53px;
+        }
+        .words>div:nth-child(2){
+            color: gainsboro;
+            font-size: 20px;
+        }
+        .words .bottomWords{
+            margin-top: 20px;
+        }
+        .words .bottomWords input:nth-child(1){
+            border: 1px solid orangered;
+            height: 50px;
+            border-radius: 25px;
+            outline: none;
+        }
+        .words .bottomWords button{
+            background-color: #ffb53a;
+            border: none;
+            color: white;
+            margin-left: 1%;
+            height: 50px;
+            border-radius: 25px;
+            outline: none;
+            text-align: center;
+            padding: 0;
+        }
+        .content{
+            background-color: white;
+            height: 700px;
+        }
+        .content .topWords{
+            color: grey;
+            text-align: center;
+            margin-top: 5%;
+            font-weight: bolder;
+        }
+        .content .middleWords{
+            color: black;
+            font-size: 30px;
+            text-align: center;
+            margin-top: 2.5%;
+        }
+        .content .bottomImg{
+            margin-top: 30px;
+        }
+        .content .bottomImg>div{
+            text-align: center;
+            font-size: 20px;
+            cursor: pointer;
+        }
+        .content .bottomImg>div>img{
+           border-radius: 5px 5px 0 0 ;
+            padding: 0;
+        }
+        .content .bottomImg>div>div:nth-child(2){
+            padding: 40px;
+            border: 1px solid #efefef;
+            border-radius:0 0 5px 5px;
+            box-shadow: 0 1px 0 #e0e0e0;
+        }
+        .content .bottomImg>div span{
+            color: #ffb53a;
+        }
+        .content .bottomImg>div>div:nth-child(3){
+            height: 40px;
+            line-height: 40px;
+            color: white;
+            background-color: #ff9427;
+            border-radius:0 0 5px 5px;
+            box-shadow: 0 1px 0 #e0e0e0;
+            opacity: 0;
+        }
+        .footerImg{
+            padding-bottom: 10%;
+        }
+        .footerImg>div{
+            text-align: center;
+        }
+        .footerImg>div:nth-child(1){
+            color: white;
+            font-size: 50px;
+            margin-top: 10%;
+        }
+        .footerImg>div:nth-child(2){
+            color: gainsboro;
+            font-size: 20px;
+            margin-top: 2%;
+        }
+        .footerImg>div:nth-child(3){
+            color: white;
+            font-size: 16px;
+            background-color: gold;
+            border-radius: 25px;
+            height: 55px;
+            line-height: 55px;
+            margin-top: 2%;
+        }
+        .catImg{
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            display: none;
+        }
+        .catImg img{
+            width: 1349px;
+            height: 700px;
+        }
+        .footer{
+            background-color: white;
+            padding:4% 0 6% 0;
+        }
+        .footer li{
+            list-style: none;
+        }
+        .footer .ulOne>li{
+            color: #a8a8a8;
+            font-size: 12px;
+            font-weight: bolder;
+            cursor: pointer;
+            padding-bottom: 5%;
+            background-color: white;
+        }
+        .footer .ulOne li>div>span{
+            margin-left: 20px;
+            display: none;
+        }
+        .footer .ulOne>li:nth-child(1){
+            font-size: 25px;
+        }
+        .footer .ulTwo{
+            margin-top: 20%;
+        }
+        .footer .ulTwo li{
+            padding: 5px 0;
+            color: #5b5b5b;
+            font-size: 14px;
+        }
+        .footer .firstUl{
+            margin-top: 10%;
+        }
+        .footer .firstUl{
+            font-size: 14px;
+            color: #5b5b5b;
+        }
+        .footer .lastUl{
+            margin-top: 15%;
+        }
+        .footer .lastUl{
+            color: #5b5b5b;
+            font-size: 25px;
+        }
+        .footer .lastUl span{
+            margin-left: 10px;
+        }
+        @media screen and (min-width: 1200px){
+
+        }
+        @media screen and (min-width: 992px) and (max-width: 1200px) {
+
+        }
+        @media screen and (max-width: 992px){
+            .nav .left{
+                height: 80px;
+                line-height: 80px;
+            }
+            .nav .right{
+                margin-top: 20px;
+            }
+            .words>div:nth-child(1){
+                text-align: center;
+            }
+            .words>div:nth-child(2){
+                text-align: center;
+            }
+            .content{
+                height: auto;
+            }
+        }
+        @media screen and (max-width: 768px){
+            .banner img{
+                width: 1349px;
+                height: 450px;
+            }
+            .words{
+                height: 250px;
+                margin-top: 0;
+            }
+            .words>div:nth-child(1){
+                text-align: center;
+                font-size: 30px;
+            }
+            .words>div:nth-child(2){
+                text-align: center;
+                font-size: 14px;
+            }
+            .words .bottomWords input:nth-child(1){
+               border: none;
+            }
+            .content .bottomImg>div{
+                width: 100%;
+            }
+            .footerImg>div:nth-child(1){
+                font-size: 30px;
+            }
+            .footerImg>div:nth-child(2){
+                font-size: 16px;
+            }
+            .footerImg>div:nth-child(3){
+                font-size: 12px;
+            }
+            .footer .ulOne>li{
+                height: 40px;
+                line-height: 40px;
+                width: 100%;
+                text-align: center;
+                margin-left: 0;
+            }
+            .footer .ulOne ul{
+                margin-top: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+<!--背景轮播-->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="banner col-lg-12 col-md-12 col-xs-12">
+                <img src="../images/background1.png" alt="" class="img-responsive">
+            </div>
+        </div>
+    </div>
+<!--导航和中间文字-->
+    <div class="container">
+        <div class="row">
+            <div class="nav col-lg-12 col-md-12 col-xs-12">
+                <div class="left col-lg-2 col-md-2 col-xs-2">
+                    <span>topvet</span>
+                </div>
+                <div class="right col-lg-3 col-md-4 col-xs-5 col-lg-offset-7 col-md-offset-6 col-xs-offset-5">
+                    <span class="col-lg-6 col-md-6 col-xs-6 hidden-xs">Sign In</span>
+                    <span class="col-lg-6 col-md-6 col-xs-6 hidden-xs">JOIN TOPVET</span>
+                    <span class="glyphicon glyphicon-align-justify visible-xs" onclick="loginBoard(this)"></span>
+                </div>
+               <div class='bottom col-lg-12 col-md-12 col-xs-12 hidden-lg hidden-sm hidden-md hidden-xs'>
+                    <div>Sign in</div>
+                    <div>JOIN TOPVET</div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="words col-lg-12 col-md-12 col-xs-10 col-lg-offset-0 col-md-offset-0 col-xs-offset-1 ">
+                <div class="col-lg-11 col-md-11 col-xs-11 topWords">
+                    Not felling well?Find a top vet
+                </div>
+                <div class="col-lg-8 col-md-8 col-xs-7 col-lg-offset-0 col-md-offset-0 col-xs-offset-2 middleWords">
+                    TopVet lists over 20,000 trusted vets <br>
+                    Find yours today
+                </div>
+                <div class="col-lg-10 col-md-10 col-xs-10 col-lg-offset-0 col-md-offset-0 col-xs-offset-1 bottomWords">
+                    <input type="text" placeholder="Search Vets by Name or Location" class="col-lg-6 col-md-6 col-xs-6 col-lg-offset-0 col-md-offset-0 col-xs-offset-1">
+                    <button class="col-lg-2 col-md-2 col-xs-2">SEARCH</button>
+                </div>
+            </div>
+        </div>
+    </div>
+<!--四个动态块-->
+    <div class="container-fluid">
+        <div class="row content">
+            <div class="container">
+                <div class="topWords col-lg-12 col-md-12 col-xs-12">MOST</div>
+                <div class="middleWords col-lg-12 col-md-12 col-xs-12">Popular Cities</div>
+                <div class="bottomImg col-lg-12 col-md-12 col-xs-12">
+                    <div class="col-lg-3 col-md-3 col-xs-6">
+                            <img src="../images/united-states1.png" alt="" class="img-responsive col-lg-12 col-md-12 col-xs-12">
+                            <div class="col-lg-12 col-md-12 col-xs-12">
+                                New York<br>
+                                <span>37</span>
+                            </div>
+                            <div class="view col-lg-12 col-md-12 col-xs-12">view</div>
+                        </div>
+                    <div class="col-lg-3 col-md-3 col-xs-6">
+                        <img src="../images/united-states2.png" alt="" class="img-responsive col-lg-12 col-md-12 col-xs-12">
+                        <div class="col-lg-12 col-md-12 col-xs-12">
+                                Los Angeles<br>
+                                <span>36</span>
+                            </div>
+                        <div class="view col-lg-12 col-md-12 col-xs-12">view</div>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-xs-6">
+                        <img src="../images/united-states3.png" alt="" class="img-responsive col-lg-12 col-md-12 col-xs-12">
+                        <div class="col-lg-12 col-md-12 col-xs-12">
+                            Chicago<br>
+                            <span>63</span>
+                        </div>
+                        <div class="view col-lg-12 col-md-12 col-xs-12">view</div>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-xs-6">
+                        <img src="../images/united-states4.png" alt="" class="img-responsive col-lg-12 col-md-12 col-xs-12">
+                        <div class="col-lg-12 col-md-12 col-xs-12">
+                            Houston<br>
+                            <span>103</span>
+                        </div>
+                        <div class="view col-lg-12 col-md-12 col-xs-12">view</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<!--尾部图片-->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="footerImg col-lg-12 col-md-12 col-xs-12">
+                <div class="col-lg-12 col-md-12 col-xs-12">Are you a top vet?</div>
+                <div class="col-lg-12 col-md-12 col-xs-12">List your veterinary practice and grow your business online</div>
+                <div class="col-lg-2 col-md-4 col-xs-6 col-lg-offset-5 col-md-offset-4 col-xs-offset-3">GET LISTED TODAY</div>
+            </div>
+        </div>
+    </div>
+<!--背景图片-->
+    <div class="container-fluid">
+    <div class="row">
+        <div class="catImg">
+            <img src="../images/background2.png" alt="" class="img-responsive">
+        </div>
+    </div>
+</div>
+<!--尾部导航-->
+    <div class="container-fluid ">
+        <div class="row footer">
+            <div class="container">
+                <div class="row">
+                    <div>
+                        <ul class="ulOne">
+                            <li class="col-lg-3 col-md-3 col-xs-4">
+                                <div>topvet<span class="caret"></span></div>
+                                <ul class="firstUl">
+                                    <li>TopVet is dedicated to providing</li>
+                                    <li>excellent veterinary software.</li>
+                                </ul>
+                            </li>
+                            <li class="col-lg-2 col-md-2 col-xs-2 col-lg-offset-0 col-md-offset-0 col-xs-offset-1">
+                                <div>company<span class="caret"></span></div>
+                                <ul class="ulTwo">
+                                    <li>Contact us</li>
+                                    <li>Terms</li>
+                                    <li>Privacy policy</li>
+                                </ul>
+                            </li>
+                            <li class="col-lg-2 col-md-2 col-xs-2 col-lg-offset-0 col-md-offset-0 col-xs-offset-2">
+                                <div>CLIENTS<span class="caret"></span></div>
+                                <ul class="ulTwo">
+                                    <li>Join us</li>
+                                    <li>Login</li>
+                                </ul>
+                            </li>
+                            <li class="col-lg-2 col-md-2 col-xs-3 col-lg-offset-0 col-md-offset-0 col-xs-offset-5">
+                                <div>BROWSE BY COUNTRY<span class="caret"></span></div>
+                                <ul class="ulTwo">
+                                    <li>Australia</li>
+                                    <li>Canada</li>
+                                    <li>Ireland</li>
+                                    <li>New Zealand</li>
+                                    <li>South Africa</li>
+                                    <li>United Kingdom</li>
+                                </ul>
+                            </li>
+                            <li class="col-lg-2 col-md-2 col-xs-3 col-lg-offset-1 col-md-offset-1 col-xs-offset-1">
+                                <div>SOFTWARE DEVELOPED BY<span class="caret"></span></div>
+                                <ul class="lastUl">
+                                    <li class="glyphicon glyphicon-road"><span>CODEFIRST</span></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <script src="../bootstrap-3.3.5-dist/js/jquery-1.11.3.js"></script>
+    <script src="../bootstrap-3.3.5-dist/js/bootstrap.js"></script>
+    <script>
+        /*页面加载完成过后*/
+        $(function () {
+            bgImgInterval = setInterval(autoPlayBanner,3000);
+
+            $(".nav .right span:nth-child(2)").bind("mouseover",function () {
+               $(this).css({
+                   "background":"rgba(255,255,255,.8)",
+                   "transition":"all .3s linear",
+                   "cursor":"pointer"
+               });
+               $(this).on("mouseout",function () {
+                   $(this).css({
+                       "background":"rgba(255,255,255,0)",
+                       "transition":"all .3s linear"
+                   });
+               });
+            });
+
+            $(".nav .bottom div:nth-child(1)").mouseover(function () {
+                $(this).css({
+                    "background":"#eef6f9",
+                    "transition":"all .5s linear"
+                }) ;
+                $(this).mouseout(function () {
+                    $(this).css({
+                        "background":"white"
+                    }) ;
+                });
+            });
+
+            $(".nav .bottom div:nth-child(2)").mouseover(function () {
+                $(this).css({
+                    "background":"#6cd5d6",
+                    "transition":"all .5s linear"
+                }) ;
+                $(this).mouseout(function () {
+                    $(this).css({
+                        "background":"#40b1ff"
+                    }) ;
+                });
+            });
+
+            $(".words button").bind("mouseover",function () {
+               $(this).css({
+                   "background":"#e08225",
+                   "transition":"all .3s linear"
+               });
+               $(this).on("mouseout",function () {
+                   $(this).css({
+                       "background":"#ff9427"
+                   });
+               });
+            });
+
+            $(".footerImg div:nth-child(3)").bind("mouseover",function () {
+                $(this).css({
+                    "background":"#e08225",
+                    "transition":"all .3s linear",
+                    "cursor":"pointer"
+                });
+                $(this).on("mouseout",function () {
+                    $(this).css({
+                        "background":"#ff9427"
+                    });
+                });
+            });
+
+            $(".content .bottomImg>div").on("mouseover",function () {
+              $(this).css({
+                   "transition":"all .3s linear",
+                   "transform":"translateY(-20px)"
+               });
+              $(this.children[2]).css({
+                    "opacity":"1"
+               });
+             $(this).on("mouseout",function () {
+                 $(this).css({
+                     "transition":"all .3s linear",
+                     "transform":"translateY(0px)"
+                 });
+                 $(this.children[2]).css({
+                     "opacity":"0"
+                 });
+             });
+            });
+
+            $(".footer .ulOne li ul li").mouseover(function () {
+                $(this).css({
+                    "color":"#a8a8a8",
+                    "transition":"all .3s linear"
+                }) ;
+                $(this).mouseout(function () {
+                    $(this).css({
+                        "color":"#5b5b5b"
+                    }) ;
+                });
+            });
+        });
+        /*背景图片数字*/
+        var bgNum = 0;
+        /*背景图片数组*/
+        var bgImgArray = ["../images/background1.png","../images/background12.png",
+            "../images/background13.png"];
+        /*背景图片控制器*/
+        var bgImgInterval;
+        /*自动更换背景图片*/
+        function autoPlayBanner() {
+                bgNum++;
+                $(".banner img").attr("src",bgImgArray[bgNum]);
+                if (bgNum==2){
+                    bgNum=-1;
+
+            }
+        }
+        /*显示/隐藏登录弹框*/
+        var navVHNum =true;
+        function loginBoard(index) {
+            if (navVHNum==true){
+
+                $(".nav .left span").css({
+                    "color":"gray"
+                });
+                $(index).css({
+                    "color":"gray"
+                });
+                $(".nav .bottom").removeClass("hidden-xs");
+                $(".nav .bottom").css({
+                    "display":"block"
+                });
+                navVHNum=false;
+            }else {
+                $(".nav .left span").css({
+                    "color":"white"
+                });
+                $(index).css({
+                    "color":"white"
+                });
+                $(".nav .bottom").slideUp();
+                navVHNum=true;
+            }
+        }
+        /*导航条固定*/
+        function navFixed() {
+           if (document.documentElement.scrollTop>=40) {
+              /* $(".nav").addClass("navFixed");*/
+              $(".nav").css({
+                  "position":"fixed",
+                  "top":"-10px",
+                  "left":"0px",
+                  "background":"rgba(0,0,0,.3)",
+                  "transition":"all .3s linear",
+                  "margin-top":"10px"
+              });
+            /* $(".nav").css({
+                 "position":"fixed",
+                 "top":"-10px",
+                 "left":"0px",
+                 "background":"rgba(0,0,0,.3)"
+             });
+             $(".nav").animate({
+                "margin-top":"10px"
+             });*/
+
+         }
+         else {
+              /* $(".nav").removeClass("navFixed");*/
+               $(".nav").css({
+                   "position":"relative",
+                   "top":"",
+                   "left":"",
+                   "background":"rgba(0,0,0,0)",
+                   "transition":"",
+                   "margin-top":"0px"
+                 /*  "padding":"0"*/
+               });
+              /* $(".nav").css({
+                   "position":"relative",
+                   "top":"",
+                   "left":"",
+                   "background":"rgba(0,0,0,0)"
+               });
+               $(".nav").animate({
+                   "margin-top":"0px"
+               });*/
+           }
+
+        }
+        /*滚动条滚动事件*/
+        window.onscroll = function () {
+            /*导航固定*/
+            navFixed();
+            /*改变背景图片*/
+            if (document.documentElement.scrollTop>=700){
+                $(".banner").css({
+                   "display":"none"
+                });
+                $(".catImg").css({
+                    "display":"block"
+                });
+            }
+            else {
+                $(".banner").css({
+                    "display":"block"
+                });
+                $(".catImg").css({
+                    "display":"none"
+                });
+            }
+            /*if (document.documentElement.scrollTop>=700){
+                console.log(document.documentElement.scrollTop);
+                clearInterval(bgImgInterval);
+                $(".banner img").attr("src","../images/background2.png");
+            }
+            else {
+                bgImgInterval = setInterval(autoPlayBanner);
+            }*/
+        };
+        /*中间按钮变化*/
+        var liState = false;
+        function middleButtonChange() {
+            if (window.innerWidth<=768){
+                $(".words .bottomWords input:nth-child(1)").attr("placeholder","search");
+                $(".words .bottomWords button").html("").addClass("glyphicon glyphicon-search");
+                    if (liState==false){
+                        $(".footer .ulOne li").css({
+                            "overflow":"hidden",
+                            "height":"40px",
+                            "transition":""
+                        });
+                        $(" .footer .ulOne li>div>span").css({
+                           "display":"inline-block",
+                            "transform":"rotate(0deg)"
+                        });
+                    }
+                $(".footer .ulOne div").on("click",function () {
+                    if($(this).parent().innerHeight()==40){
+                        $(this).parent().css({
+                            "height":40+$(this).siblings().children().length*50+"px",
+                            "overflow":"visible",
+                            "transition":"all .5s linear"
+                        });
+                        $(this).children().css({
+                            "transform":"rotate(180deg)",
+                            "transition":"all .5s linear"
+                        });
+                        liState=true;
+                    }
+                    else {
+                        $(this).parent().css({
+                            "overflow":"hidden",
+                            "height":"40px",
+                            "transition":"all .5s linear"
+                        });
+                        $(this).children().css({
+                            "display":"line-block",
+                            "transform":"rotate(0deg)",
+                            "transition":"all .5s linear"
+                        });
+                    }
+                });
+            }
+            else {
+                $(".words .bottomWords input:nth-child(1)").attr("placeholder","Search Vets by Name or Location");
+                $(".words .bottomWords button").html("SEARCH").removeClass("glyphicon glyphicon-search");
+                $(".footer .ulOne li").css({
+                    "overflow":"visible",
+                    "height":"auto",
+                    "transition":""
+                });
+                $(" .footer .ulOne li>div>span").css({
+                    "display":"none"
+                });
+                liState=false;
+            }
+        }
+        setInterval(middleButtonChange,100);
+
+    </script>
+</body>
+</html>
